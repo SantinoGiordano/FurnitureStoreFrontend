@@ -26,7 +26,7 @@ export default function SearchBar(){
       }
 
       try {
-        const response = await fetch("http://localhost:8080/api/furniture");
+        const response = await fetch("https://santinofurniturestore.onrender.com/api/furniture");
         if (!response.ok) throw new Error("Failed to fetch data");
 
         const json = await response.json();

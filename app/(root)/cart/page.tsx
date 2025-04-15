@@ -25,7 +25,7 @@ export default function Cart() {
   useEffect(() => {
     async function fetchFurniture() {
       try {
-        const response = await fetch("http://localhost:8080/api/furniture");
+        const response = await fetch("https://santinofurniturestore.onrender.com/api/furniture");
         if (!response.ok) throw new Error("Failed to fetch data");
         const data = await response.json();
         setItems(data);

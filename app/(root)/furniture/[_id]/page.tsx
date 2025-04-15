@@ -30,7 +30,7 @@ export default function FurnitureDetail() {
   useEffect(() => {
     async function fetchFurnitureItem() {
       try {
-        const response = await fetch(`http://localhost:8080/api/furniture/${_id}`);
+        const response = await fetch(`http://https://santinofurniturestore.onrender.com/api/furniture/${_id}`);
         if (!response.ok) throw new Error("Failed to fetch item");
         const data = await response.json();
         setItem(data);
