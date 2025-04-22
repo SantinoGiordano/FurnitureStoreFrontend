@@ -1,41 +1,45 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useFavoritedStore } from "@/app/Store";
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useFavoritedStore } from "@/app/Store";
 import AddCartButton from "@/componets/AddCartButton";
+// import { API_ENDPOINT } from "@/util/env";
+import { useFurnitureApi } from "@/hooks/useFurtinatureApi";
 
-interface Furniture {
-  _id: string;
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  rating: number;
-  inStock: boolean;
-  image: string;
-  sale?: number;
-}
+// interface Furniture {
+//   _id: string;
+//   id: string;
+//   name: string;
+//   description: string;
+//   price: number;
+//   rating: number;
+//   inStock: boolean;
+//   image: string;
+//   sale?: number;
+// }
+
 
 export default function Favorites() {
-  const [items, setItems] = useState<Furniture[]>([]);
-  const [error, setError] = useState<string | null>(null);
+  // const [items, setItems] = useState<Furniture[]>([]);
+  // const [error, setError] = useState<string | null>(null);
+  const { items, error, fetchFurniture } = useFurnitureApi()
   const favorites = useFavoritedStore((state) => state.favorites);
   const toggleFavorite = useFavoritedStore((state) => state.toggleFavorite);
 
+  // async function fetchFurniture() {
+  //   try {
+  //     const response = await fetch(`${API_ENDPOINT}/furniture`);
+  //     if (!response.ok) throw new Error("Failed to fetch data");
+  //     const data = await response.json();
+  //     setItems(data);
+  //   } catch (err) {
+  //     setError("Unable to load furniture items. Please try again later.");
+  //     console.log(err);
+  //   }
+  // }
   useEffect(() => {
-    async function fetchFurniture() {
-      try {
-        const response = await fetch("https://santinofurniturestore.onrender.com/api/furniture");
-        if (!response.ok) throw new Error("Failed to fetch data");
-        const data = await response.json();
-        setItems(data);
-      } catch (err) {
-        setError("Unable to load furniture items. Please try again later.");
-        console.log(err);
-      }
-    }
     fetchFurniture();
   }, []);
 
