@@ -8,19 +8,6 @@ import AddCartButton from "@/componets/AddCartButton";
 // import { API_ENDPOINT } from "@/util/env";
 import { useFurnitureApi } from "@/hooks/useFurtinatureApi";
 
-// interface Furniture {
-//   _id: string;
-//   id: string;
-//   name: string;
-//   description: string;
-//   price: number;
-//   rating: number;
-//   inStock: boolean;
-//   image: string;
-//   sale?: number;
-// }
-
-
 export default function Favorites() {
   // const [items, setItems] = useState<Furniture[]>([]);
   // const [error, setError] = useState<string | null>(null);
