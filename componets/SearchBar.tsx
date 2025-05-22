@@ -39,7 +39,7 @@ export default function SearchBar(){
         setResults(filteredResults);
       } catch (error) {
         console.error("Error fetching data:", error);
-        setResults([]); // Prevent UI crashes on error
+        setResults([]); 
       }
     };
 
@@ -49,7 +49,7 @@ export default function SearchBar(){
 
   return (
     <div className="relative w-full max-w-md mx-auto">
-      {/* Search Input */}
+
       <input
         id="item-search"
         className="w-full p-3 pl-4 text-gray-700 bg-white border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all"
@@ -59,7 +59,6 @@ export default function SearchBar(){
         onChange={(e) => setInput(e.target.value)}
       />
 
-      {/* Search Results */}
       {input && (
         <ul className="absolute left-0 right-0 mt-2 bg-white border border-gray-200 shadow-lg rounded-lg overflow-hidden z-50 max-h-60 overflow-y-auto">
           {results.length > 0 ? (
